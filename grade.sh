@@ -12,6 +12,8 @@ git clone $1 student-submission
 
 echo "Finished cloning student-submission"
 
+cp lib student-submission/
+
 cp TestListExamples.java student-submission/
 
 echo "Copied Test Successfully"
