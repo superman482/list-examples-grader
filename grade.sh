@@ -6,8 +6,12 @@
 CP=".:$PWD/lib/hamcrest-core-1.3.jar:$PWD/lib/junit-4.13.2.jar"
 
 #Delete old student-submission
-rm -rf student-submission
-echo "Student-submission is deleted"
+if [[ -e student-submission/ ]]; then
+    rm -rf student-submission
+    echo "Student-submission is deleted"
+else
+    echo "student-submission doesn't exist"
+fi
 
 #Cloning student submission
 git clone $1 student-submission
@@ -32,10 +36,11 @@ else
     exit $?
 fi
 
+
 #Run the Test file
 java -cp $CP org.junit.runner.JUnitCore TestListExamples 1> stdout.txt 2> stderr.txt
-if [[ $? -eq 0 ]]; then
-    TEMP=$(grep -o "Failure" stderr.txt || grep -o "OK" stdout.txt)
+# if [[ $? -eq 0 ]]; then
+#     TEMP=$(grep -o "Failure" stderr.txt || grep -o "OK" stdout.txt)
     
-    TOTAL_GRADE=
-fi
+#     TOTAL_GRADE=
+# fi
