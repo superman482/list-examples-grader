@@ -12,22 +12,22 @@ class Checker implements StringChecker {
 public class TestListExamples {
   // Write your grading tests here!
 
-  @Test
-  public void testFilter() {
-    StringChecker sc = new Checker();
-    List<String> input1 = new ArrayList<>();
-    input1.add("hello");
-    input1.add("world");
-    input1.add("hi");
-    List<String> expected = new ArrayList<>();
-    expected.add("hello");
-    expected.add("hi");
-    for(int i = 0; i < expected.size(); i++) {
-        assertEquals(expected.get(i), ListExamples.filter(input1, sc).get(i));
+    @Test
+    public void testFilter() {
+        StringChecker sc = new Checker();
+        List<String> input1 = new ArrayList<>();
+        input1.add("hello");
+        input1.add("world");
+        input1.add("hi");
+        List<String> expected = new ArrayList<>();
+        expected.add("hello");
+        expected.add("hi");
+        for(int i = 0; i < expected.size(); i++) {
+            assertEquals(expected.get(i), ListExamples.filter(input1, sc).get(i));
+        }
     }
-  }
 
-  @Test(timeout = 500)
+    @Test(timeout = 500)
     public void testMerge() {
         List<String> input1 = new ArrayList<>();
         input1.add("e");
